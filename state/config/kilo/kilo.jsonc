@@ -2,18 +2,78 @@
   "$schema": "https://app.kilo.ai/config.json",
   "permission": {
     "bash": {
+      "find *": "allow",
+      "apt-get *": "allow",
+      "tree *": "allow",
+      "git init *": "allow",
       "git status *": "allow",
-      "git diff *": "allow",
       "git log *": "allow",
+      "echo *": "allow",
       "git show *": "allow",
-      "ls *": "allow",
-      "mkdir *": "allow",
+      "git diff *": "allow",
+      "head *": "allow",
+      "git add *": "allow",
+      "git commit *": "allow",
+      "curl *": "allow",
       "cat *": "allow",
+      "python3 *": "allow",
+      "bun --version *": "allow",
+      "bash *": "allow",
+      "source *": "allow",
+      "bun run /home/USER/bun-hello-world/index.ts *": "allow",
+      "/home/USER/.bun/bin/bun *": "allow",
+      "sleep *": "allow",
+      "pkill *": "allow",
+      "~/.bun/bin/bun *": "allow",
+      "dmesg *": "allow",
+      "seq *": "allow",
+      "mkdir *": "allow",
+      "python /home/USER/.config/kilo/skills/analyse-fsd/scripts/parse_md.py *": "allow",
+      "python process_grab_data.py *": "allow",
+      "ls *": "allow",
+      "python -c *": "allow",
+      "pip install *": "allow",
+      "python grab_report.py *": "allow",
+      "rm *": "allow",
+      "python /home/USER/.config/kilo/skills/analyse-fsd/scripts/analyse_fsd.py *": "allow",
       "read *": "allow",
-      "printf *": "allow"
+      "npm install *": "allow",
+      "npm run build *": "allow",
+      "npx *": "allow",
+      "printf *": "allow",
+      "command *": "allow",
+      "kilo *": "allow",
+      "npm root *": "allow",
+      "npm list *": "allow",
+      "sed *": "allow",
+      "chmod *": "allow",
+      "docker --version *": "allow",
+      "docker compose -f *": "allow",
+      "docker build *": "allow",
+      "docker run *": "allow",
+      "docker tag *": "allow",
+      "docker push *": "allow",
+      "git -C *": "allow",
+      "git clone *": "allow",
+      "cp *": "allow"
+    },
+    "external_directory": {
+      "/home/USER/.local/share/kilo/plans/*": "allow",
+      "/var/log/*": "allow",
+      "/*": "allow"
+    },
+    "*": {
+      "*": "allow"
     }
   },
   "mcp": {
+    "SCRAPLING": {
+      "type": "local",
+      "command": [
+        "python3",
+        "/home/USER/.config/kilo/mcp/SCRAPLING/scrapling-mcp.py"
+      ]
+    },
     "hatchable": {
       "type": "remote",
       "url": "https://hatchable.com/mcp",
