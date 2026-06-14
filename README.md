@@ -38,7 +38,8 @@ All persistent data lives under `./state/`:
 
 - `state/config/kilo/` - main Kilo config
 - `state/config/kilo/kilo.jsonc` - base config without credentials
-- `state/config/nvm/kilo.json` - Kilo runtime config
+- `state/config/kilo/skills/` - existing Kilo skills copied from the local setup
+- `state/config/nvm/kilo.json` - Kilo runtime config, including skill paths
 - `state/models/opencode.json` - model/provider config without credentials
 - `state/profiles/` - profile files
 - `state/data/kilo/` - Kilo local data
@@ -96,6 +97,7 @@ Edit these files to customize Kilo:
 
 If you want to use a different model, change `state/models/opencode.json`.
 If you want to change permissions or MCP servers, edit `state/config/kilo/kilo.jsonc`.
+If you want to add or edit reusable skills, place them under `state/config/kilo/skills/`.
 
 ### Important Files
 

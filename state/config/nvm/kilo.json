@@ -2,7 +2,8 @@
   "$schema": "https://app.kilo.ai/config.json",
   "skills": {
     "paths": [
-      ".kilo/skills"
+      ".kilo/skills",
+      ".config/kilo/skills"
     ]
   }
 }
