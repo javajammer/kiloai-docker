@@ -1,0 +1,30 @@
+services:
+  kilo:
+    build:
+      context: .
+      args:
+        KILO_VERSION: "latest"
+    image: kilo-code:latest
+    tty: true
+    stdin_open: true
+    environment:
+      HOME: /home/kilo
+      KILO_STATE_DIR: /home/kilo/.local/state/kilo
+      XDG_CONFIG_HOME: /home/kilo/.config
+      XDG_DATA_HOME: /home/kilo/.local/share
+      XDG_CACHE_HOME: /home/kilo/.cache
+      XDG_STATE_HOME: /home/kilo/.local/state
+    volumes:
+      - ./state/config/kilo:/home/kilo/.config/kilo
+      - ./state/config/nvm/kilo.json:/home/kilo/.nvm/kilo.json
+      - ./state/models/opencode.json:/home/kilo/.config/kilo/opencode.json
+      - ./state/profiles:/home/kilo/.config/kilo/profiles
+      - ./state/data/kilo:/home/kilo/.local/share/kilo
+      - ./state/state/kilo:/home/kilo/.local/state/kilo
+      - ./state/data/kilo/auth.json:/home/kilo/.local/share/kilo/auth.json
+      - ./state/data/kilo/mcp-auth.json:/home/kilo/.local/share/kilo/mcp-auth.json
+      - ./state/data/kilo/telemetry-id:/home/kilo/.local/share/kilo/telemetry-id
+      - ./state/cache/kilo:/home/kilo/.cache/kilo
+      - ./state/sessions:/home/kilo/.local/share/kilo/sessions
+      - ./state/logs:/home/kilo/.local/share/kilo/logs
+      - ./workspace:/workspace

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "permission": {
+    "bash": {
+      "git status *": "allow",
+      "git diff *": "allow",
+      "git log *": "allow",
+      "git show *": "allow",
+      "ls *": "allow",
+      "mkdir *": "allow",
+      "cat *": "allow",
+      "read *": "allow",
+      "printf *": "allow"
+    }
+  },
+  "mcp": {
+    "hatchable": {
+      "type": "remote",
+      "url": "https://hatchable.com/mcp",
+      "enabled": true,
+      "oauth": {}
+    }
+  }
+}

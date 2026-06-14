@@ -1,0 +1,28 @@
+# Keep local runtime data out of git.
+workspace/
+
+# Ignore generated auth/session files if users edit their local copy.
+state/data/kilo/auth.json
+state/data/kilo/mcp-auth.json
+state/data/kilo/telemetry-id
+
+# Ignore generated cache/log/session/state contents, but keep directory placeholders.
+state/cache/**
+!state/cache/
+!state/cache/.gitkeep
+!state/cache/kilo/
+!state/cache/kilo/.gitkeep
+
+state/logs/**
+!state/logs/
+!state/logs/.gitkeep
+
+state/sessions/**
+!state/sessions/
+!state/sessions/.gitkeep
+
+state/state/**
+!state/state/
+!state/state/.gitkeep
+!state/state/kilo/
+!state/state/kilo/.gitkeep

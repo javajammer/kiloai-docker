@@ -1,0 +1,11 @@
+{
+  "$schema": "https://kilo.ai/config.json",
+  "model": "kilo/kilo-auto/free",
+  "small_model": "kilo/kilo-auto/free",
+  "theme": "catppuccin",
+  "autoupdate": true,
+  "share": "manual",
+  "snapshot": true,
+  "logLevel": "INFO",
+  "provider": {}
+}

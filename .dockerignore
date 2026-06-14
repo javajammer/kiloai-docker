@@ -1,0 +1,6 @@
+state/**
+workspace/**
+*.log
+.git
+.gitignore
+README.md.bak
