@@ -75,16 +75,22 @@ docker compose run --rm kilo
 ## Publish To Docker Hub
 
 ```bash
-docker tag kilo-code:latest siriesal/kiloai:latest
+docker build -t siriesal/kiloai:latest .
 docker push siriesal/kiloai:latest
 ```
 
 To update the published image after changes:
 
 ```bash
-docker build -t kilo-code:latest .
-docker tag kilo-code:latest siriesal/kiloai:latest
+docker build -t siriesal/kiloai:latest .
 docker push siriesal/kiloai:latest
+```
+
+To publish the pinned Kilo 7.3.45 image:
+
+```bash
+docker build --build-arg KILO_VERSION=7.3.45 -t siriesal/kiloai:7.3.45 .
+docker push siriesal/kiloai:7.3.45
 ```
 
 ## Configuration

@@ -4,7 +4,7 @@ services:
       context: .
       args:
         KILO_VERSION: "latest"
-    image: kilo-code:latest
+    image: siriesal/kiloai:latest
     tty: true
     stdin_open: true
     environment:
