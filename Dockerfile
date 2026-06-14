@@ -1,9 +1,8 @@
-FROM node:18-bookworm-slim
+FROM dhi.io/node:26-alpine-sfw-ent-dev
 
 ARG KILO_VERSION=latest
 
-ENV DEBIAN_FRONTEND=noninteractive \
-    HOME=/home/kilo \
+ENV HOME=/home/kilo \
     KILO_STATE_DIR=/home/kilo/.local/state/kilo \
     XDG_CONFIG_HOME=/home/kilo/.config \
     XDG_DATA_HOME=/home/kilo/.local/share \
@@ -12,7 +11,11 @@ ENV DEBIAN_FRONTEND=noninteractive \
     NODE_ENV=production \
     PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+LABEL org.opencontainers.image.source=https://github.com/javajammer/kiloai-docker
+LABEL org.opencontainers.image.description="kiloai on top docker"
+LABEL org.opencontainers.image.licenses=MIT
+
+RUN apk add --no-cache \
     ca-certificates \
     curl \
     git \
@@ -21,9 +24,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ripgrep \
     tini \
     python3 \
-  && rm -rf /var/lib/apt/lists/*
+    bash
 
-RUN useradd -m -o -u 1000 -s /bin/bash kilo
+RUN adduser -D -s /bin/bash kilo || true
 
 RUN mkdir -p \
     /home/kilo/.config/kilo \
@@ -42,5 +45,5 @@ RUN chmod +x /usr/local/bin/kilo-entrypoint
 USER kilo
 WORKDIR /workspace
 
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/kilo-entrypoint"]
+ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/kilo-entrypoint"]
 CMD ["kilo"]
